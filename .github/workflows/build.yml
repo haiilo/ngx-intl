@@ -2,7 +2,7 @@ name: 'Core'
 on:
   push:
     paths:
-      - 'core/**'
+      - 'projects/ngx-intl/**'
 jobs:
   # build:
   #   runs-on: ubuntu-latest
