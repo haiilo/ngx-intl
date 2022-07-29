@@ -1,0 +1,83 @@
+name: 'Core'
+on:
+  push:
+    paths:
+      - 'core/**'
+jobs:
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Setup
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version-file: .nvmrc
+  #         cache: npm
+  #         cache-dependency-path: package-lock.json
+  #     - name: Install and Build
+  #       run: |
+  #         npm ci
+  #         npm run build -w tokens
+  #         npm run build:ci -w core
+  # prettier:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Setup
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version-file: .nvmrc
+  #         cache: npm
+  #         cache-dependency-path: package-lock.json
+  #     - name: Install and Check
+  #       run: |
+  #         npm ci
+  #         npm run prettier:check -w core
+  # eslint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Setup
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version-file: .nvmrc
+  #         cache: npm
+  #         cache-dependency-path: package-lock.json
+  #     - name: Install and Lint
+  #       run: |
+  #         npm ci
+  #         npm run lint -w core
+  # stylelint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Setup
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version-file: .nvmrc
+  #         cache: npm
+  #         cache-dependency-path: package-lock.json
+  #     - name: Install and Lint
+  #       run: |
+  #         npm ci
+  #         npm run lint:style -w core
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Test
+        run: |
+          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
