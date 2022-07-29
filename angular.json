@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ngx-intl",
       "sourceRoot": "projects/ngx-intl/src",
-      "prefix": "lib",
+      "prefix": "intl",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
