@@ -31,8 +31,22 @@
             "tsConfig": "projects/ngx-intl/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-intl/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-intl/**/*.ts",
+              "projects/ngx-intl/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
