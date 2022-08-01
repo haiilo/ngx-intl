@@ -1,17 +1,12 @@
 name: 'Release'
 on:
-  workflow_dispatch
+  push:
+    branches:
+      - main
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Configure committer
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
-      - name: Bump version
-        uses: qzb/standard-version@v1
       - uses: google-github-actions/release-please-action@v3
         with:
           release-type: node
