@@ -13,7 +13,7 @@ jobs:
           release-type: node
           package-name: release-please-action
           path: |
-            projects/ngx-intl
+            projects/ngx-intl/
       - uses: actions/checkout@v2
         if: ${{ steps.release.outputs.release_created }}
       - uses: actions/setup-node@v3

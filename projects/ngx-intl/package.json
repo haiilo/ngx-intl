@@ -1,6 +1,6 @@
 {
   "name": "@haiilo/ngx-intl",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "Angular pipes using the native Intl browser API",
   "license": "MIT",
   "publishConfig": {
