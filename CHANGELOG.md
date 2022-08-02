@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/haiilo/ngx-intl/compare/v1.0.0...v1.0.1) (2022-08-02)
+
+
+### Bug Fixes
+
+* fix npm release automation ([8643408](https://github.com/haiilo/ngx-intl/commit/8643408b9499107ff402f3d4c0560107982f3e35))
+
 ## 1.0.0 (2022-08-02)
 
 
