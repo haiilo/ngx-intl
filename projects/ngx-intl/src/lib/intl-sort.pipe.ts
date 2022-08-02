@@ -29,7 +29,6 @@ export class IntlSortPipe implements PipeTransform {
     }
   };
 
-  // test23
   constructor(
     @Inject(LOCALE_ID) private readonly locale: string,
     @Inject(INTL_SORT_OPTIONS) @Optional() private readonly options: IntlSortGlobalOptions | null
