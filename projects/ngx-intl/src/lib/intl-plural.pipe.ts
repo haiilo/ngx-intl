@@ -1,12 +1,12 @@
 import { Inject, InjectionToken, LOCALE_ID, Optional, Pipe, PipeTransform } from '@angular/core';
 
 export interface IntlPluralOptions extends Intl.PluralRulesOptions {
-  preset?: string
+  preset?: string;
 }
 
 export interface IntlPluralGlobalOptions {
-  presets?: { [key: string]: Intl.PluralRulesOptions },
-  defaultPreset?: string
+  presets?: { [key: string]: Intl.PluralRulesOptions };
+  defaultPreset?: string;
 }
 
 export const INTL_PLURAL_OPTIONS =
@@ -25,7 +25,7 @@ export class IntlPluralPipe implements PipeTransform {
   private static readonly DEFAULT_OPTIONS: IntlPluralGlobalOptions = {
     presets: {
       cardinal: INTL_PLURAL_PRESET_CARDINAL,
-      ordinal: INTL_PLURAL_PRESET_ORDINAL,
+      ordinal: INTL_PLURAL_PRESET_ORDINAL
     }
   };
 

@@ -1,12 +1,12 @@
 import { Inject, InjectionToken, LOCALE_ID, Optional, Pipe, PipeTransform } from '@angular/core';
 
 export interface IntlNumberOptions extends Intl.NumberFormatOptions {
-  preset?: string
+  preset?: string;
 }
 
 export interface IntlNumberGlobalOptions {
-  presets?: { [key: string]: Intl.NumberFormatOptions },
-  defaultPreset?: string
+  presets?: { [key: string]: Intl.NumberFormatOptions };
+  defaultPreset?: string;
 }
 
 export const INTL_NUMBER_OPTIONS =
@@ -31,7 +31,7 @@ export class IntlNumberPipe implements PipeTransform {
       short: INTL_NUMBER_PRESET_SHORT,
       long: INTL_NUMBER_PRESET_LONG,
       currency: INTL_NUMBER_PRESET_CURRENCY,
-      percent: INTL_NUMBER_PRESET_PERCENT,
+      percent: INTL_NUMBER_PRESET_PERCENT
     }
   };
 

@@ -1,12 +1,12 @@
 import { Inject, InjectionToken, LOCALE_ID, Optional, Pipe, PipeTransform } from '@angular/core';
 
 export interface IntlListOptions extends Intl.ListFormatOptions {
-  preset?: string
+  preset?: string;
 }
 
 export interface IntlListGlobalOptions {
-  presets?: { [key: string]: Intl.ListFormatOptions },
-  defaultPreset?: string
+  presets?: { [key: string]: Intl.ListFormatOptions };
+  defaultPreset?: string;
 }
 
 export const INTL_LIST_OPTIONS =
@@ -25,7 +25,7 @@ export class IntlListPipe implements PipeTransform {
   private static readonly DEFAULT_OPTIONS: IntlListGlobalOptions = {
     presets: {
       and: INTL_LIST_PRESET_AND,
-      or: INTL_LIST_PRESET_OR,
+      or: INTL_LIST_PRESET_OR
     }
   };
 

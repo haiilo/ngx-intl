@@ -1,12 +1,12 @@
 import { Inject, InjectionToken, LOCALE_ID, Optional, Pipe, PipeTransform } from '@angular/core';
 
 export interface IntlSortOptions extends Intl.CollatorOptions {
-  preset?: string
+  preset?: string;
 }
 
 export interface IntlSortGlobalOptions {
-  presets?: { [key: string]: Intl.CollatorOptions },
-  defaultPreset?: string
+  presets?: { [key: string]: Intl.CollatorOptions };
+  defaultPreset?: string;
 }
 
 export const INTL_SORT_OPTIONS =

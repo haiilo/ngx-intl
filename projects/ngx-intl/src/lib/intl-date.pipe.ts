@@ -1,12 +1,12 @@
 import { Inject, InjectionToken, LOCALE_ID, Optional, Pipe, PipeTransform } from '@angular/core';
 
 export interface IntlDateOptions extends Intl.DateTimeFormatOptions {
-  preset?: string
+  preset?: string;
 }
 
 export interface IntlDateGlobalOptions {
-  presets?: { [key: string]: Intl.DateTimeFormatOptions },
-  defaultPreset?: string
+  presets?: { [key: string]: Intl.DateTimeFormatOptions };
+  defaultPreset?: string;
 }
 
 export const INTL_DATE_OPTIONS =
