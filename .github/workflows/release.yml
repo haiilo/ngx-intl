@@ -24,9 +24,8 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
       - run: npm run build
         if: ${{ steps.release.outputs.release_created }}
-      - run: |
-          cd dist/ngx-intl/
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: ./dist/ngx-intl/package.json
         if: ${{ steps.release.outputs.release_created }}
