@@ -34,9 +34,9 @@ describe('IntlDatePipe', () => {
   });
 
   it('should use preset by string', () => {
-    pipe = new IntlDatePipe('en-US', {presets: {short: {dateStyle: 'short'}}});
+    pipe = new IntlDatePipe('en-US', {presets: {custom: {dateStyle: 'short'}}});
     const date = new Date(Date.UTC(2020, 11, 20));
-    const result = pipe.transform(date, 'short');
+    const result = pipe.transform(date, 'custom');
     expect(result).toEqual('12/20/20');
   });
 
@@ -51,6 +51,13 @@ describe('IntlDatePipe', () => {
     pipe = new IntlDatePipe('en-US', {presets: {custom: {dateStyle: 'short'}}});
     const date = new Date(Date.UTC(2020, 11, 20));
     const result = pipe.transform(date, { preset: 'custom', dateStyle: 'long' });
+    expect(result).toEqual('December 20, 2020');
+  });
+
+  it('should use default', () => {
+    pipe = new IntlDatePipe('en-US', {presets: {custom: {dateStyle: 'long'}}, defaultPreset: 'custom'});
+    const date = new Date(Date.UTC(2020, 11, 20));
+    const result = pipe.transform(date);
     expect(result).toEqual('December 20, 2020');
   });
 
