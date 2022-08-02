@@ -12,7 +12,8 @@ jobs:
         with:
           release-type: node
           package-name: release-please-action
-          extra-files: './projects/ngx-intl/package.json'
+          extra-files: |
+            projects/ngx-intl/package.json
       - uses: actions/checkout@v2
         if: ${{ steps.release.outputs.release_created }}
       - uses: actions/setup-node@v3
@@ -28,5 +29,6 @@ jobs:
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          package: './dist/ngx-intl/package.json'
+          package: |
+            dist/ngx-intl/package.json
         if: ${{ steps.release.outputs.release_created }}
