@@ -12,7 +12,10 @@ jobs:
         with:
           release-type: node
           package-name: release-please-action
-          path: projects/ngx-intl
+          extra-files:
+          - type: json
+            path: projects/ngx-intl/package.json
+            jsonpath: $.version
       - uses: actions/checkout@v2
         if: ${{ steps.release.outputs.release_created }}
       - uses: actions/setup-node@v3
