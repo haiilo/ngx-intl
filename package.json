@@ -1,6 +1,7 @@
 {
   "name": "@haiilo/npx-intl",
-  "version": "1.0.1",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +11,6 @@
     "lint": "ng lint",
     "prepare": "husky install"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^14.1.0",
     "@angular/common": "^14.1.0",

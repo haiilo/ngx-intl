@@ -12,8 +12,8 @@ jobs:
         with:
           release-type: node
           package-name: release-please-action
-          extra-files: |
-            projects/ngx-intl/package.json
+          path: |
+            projects/ngx-intl
       - uses: actions/checkout@v2
         if: ${{ steps.release.outputs.release_created }}
       - uses: actions/setup-node@v3
