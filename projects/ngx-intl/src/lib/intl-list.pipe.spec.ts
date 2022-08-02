@@ -7,36 +7,36 @@ describe('IntlListPipe', () => {
     pipe = new IntlListPipe('en-US', null);
   });
 
-  it('create instance', () => {
+  it('should create instance', () => {
     expect(pipe).toBeTruthy();
   });
 
-  it('format list', () => {
+  it('should format list', () => {
     const list = ['a', 'b', 'c'];
     const result = pipe.transform(list);
     expect(result).toEqual('a, b, and c');
   });
 
-  it('format null', () => {
+  it('should format null', () => {
     const result = pipe.transform(null);
     expect(result).toBeNull();
   });
 
-  it('should use preset by string', () => {
+  it('should should use preset by string', () => {
     pipe = new IntlListPipe('en-US', {presets: {custom: { type: 'disjunction' }}});
     const list = ['a', 'b', 'c'];
     const result = pipe.transform(list, 'custom');
     expect(result).toEqual('a, b, or c');
   });
 
-  it('should use preset by options', () => {
+  it('should should use preset by options', () => {
     pipe = new IntlListPipe('en-US', {presets: {custom: { type: 'disjunction' }}});
     const list = ['a', 'b', 'c'];
     const result = pipe.transform(list, { preset: 'custom' });
     expect(result).toEqual('a, b, or c');
   });
 
-  it('should use overrides', () => {
+  it('should should use overrides', () => {
     pipe = new IntlListPipe('en-US', {presets: {custom: { type: 'disjunction' }}});
     const list = ['a', 'b', 'c'];
     const result = pipe.transform(list, { preset: 'custom', type: 'conjunction' });
