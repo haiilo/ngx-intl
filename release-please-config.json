@@ -1,0 +1,7 @@
+{
+  "packages": {
+    "projects/ngx-intl": {
+      "release-type": "node"
+    }
+  }
+}
