@@ -1,6 +1,6 @@
 {
   "name": "@haiilo/ngx-intl",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Standalone Angular pipes using the ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, and date and time formatting.",
   "keywords": [
     "Angular",
