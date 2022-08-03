@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v1.3.0...ngx-intl-v1.3.1) (2022-08-03)
+
+
+### Bug Fixes
+
+* cleanup ([18ec591](https://github.com/haiilo/ngx-intl/commit/18ec591c8363dd7756e0786ddad0177fcc477b82))
+
 ## [1.3.0](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v1.2.0...ngx-intl-v1.3.0) (2022-08-03)
 
 
