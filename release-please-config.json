@@ -1,8 +1,7 @@
 {
   "packages": {
     "projects/ngx-intl": {
-      "release-type": "node",
-      "package-name": "release-please-action"
+      "release-type": "node"
     }
   }
 }
