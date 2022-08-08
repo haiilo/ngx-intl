@@ -1,24 +1,29 @@
 import { Inject, InjectionToken, LOCALE_ID, Optional, Pipe, PipeTransform } from '@angular/core';
 
-export interface IntlNumberOptions extends Intl.NumberFormatOptions {
-  preset?: string;
+/** A preconfigured option preset for the IntlNumberPipe. */
+export interface IntlNumberOptions extends Intl.NumberFormatOptions {}
+
+/** Global options and presets for the IntlNumberPipe. */
+export interface IntlNumberGlobalOptions {
+  presets?: { [key: string]: IntlNumberOptions };
+  defaultPreset?: string;
 }
 
-export interface IntlNumberGlobalOptions {
-  presets?: { [key: string]: Intl.NumberFormatOptions };
-  defaultPreset?: string;
+/** Options for a transform call of the IntlNumberPipe. */
+export interface IntlNumberLocalOptions extends IntlNumberOptions {
+  preset?: string;
 }
 
 export const INTL_NUMBER_OPTIONS =
   new InjectionToken<IntlNumberGlobalOptions>('IntlNumberOptions');
 
-export const INTL_NUMBER_PRESET_SHORT: Intl.NumberFormatOptions =
+export const INTL_NUMBER_PRESET_SHORT: IntlNumberOptions =
   { useGrouping: false, maximumFractionDigits: 2 };
-export const INTL_NUMBER_PRESET_LONG: Intl.NumberFormatOptions =
+export const INTL_NUMBER_PRESET_LONG: IntlNumberOptions =
   { maximumFractionDigits: 8 };
-export const INTL_NUMBER_PRESET_CURRENCY: Intl.NumberFormatOptions =
+export const INTL_NUMBER_PRESET_CURRENCY: IntlNumberOptions =
   { style: 'currency', currency: 'USD' };
-export const INTL_NUMBER_PRESET_PERCENT: Intl.NumberFormatOptions =
+export const INTL_NUMBER_PRESET_PERCENT: IntlNumberOptions =
   { style: 'percent' };
 
 @Pipe({
@@ -40,15 +45,21 @@ export class IntlNumberPipe implements PipeTransform {
     @Inject(INTL_NUMBER_OPTIONS) @Optional() private readonly options: IntlNumberGlobalOptions | null
   ) {}
 
-  transform(value: number | bigint | null, options?: string | IntlNumberOptions, ...locales: string[]): string | null {
-    return value !== null ? new Intl.NumberFormat(this.getLocales(locales), this.getOptions(options)).format(value) : null;
+  transform(value: number | bigint | null, options?: string | IntlNumberLocalOptions, ...locales: string[]): string | null {
+    if (value === null) {
+      return null;
+    }
+
+    const _locales = this.getLocales(locales);
+    const _options = this.getOptions(options);
+    return new Intl.NumberFormat(_locales, _options).format(value);
   }
 
   private getLocales(locales: string[]): string[] {
     return [...locales, this.locale];
   }
 
-  private getOptions(options?: string | IntlNumberOptions): Intl.NumberFormatOptions {
+  private getOptions(options?: string | IntlNumberLocalOptions): IntlNumberOptions {
     const presetStr = typeof options === 'string';
     const presetKey = !presetStr
       ? options?.preset || this.options?.defaultPreset || IntlNumberPipe.DEFAULT_OPTIONS.defaultPreset

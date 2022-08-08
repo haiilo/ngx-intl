@@ -1,40 +1,45 @@
 import { Inject, InjectionToken, LOCALE_ID, Optional, Pipe, PipeTransform } from '@angular/core';
 
-export interface IntlDateOptions extends Intl.DateTimeFormatOptions {
-  preset?: string;
+/** A preconfigured option preset for the IntlDatePipe. */
+export interface IntlDateOptions extends Intl.DateTimeFormatOptions {}
+
+/** Global options and presets for the IntlDatePipe. */
+export interface IntlDateGlobalOptions {
+  presets?: { [key: string]: IntlDateOptions };
+  defaultPreset?: string;
 }
 
-export interface IntlDateGlobalOptions {
-  presets?: { [key: string]: Intl.DateTimeFormatOptions };
-  defaultPreset?: string;
+/** Options for a transform call of the IntlDatePipe. */
+export interface IntlDateLocalOptions extends IntlDateOptions {
+  preset?: string;
 }
 
 export const INTL_DATE_OPTIONS =
   new InjectionToken<IntlDateGlobalOptions>('IntlDateOptions');
 
-export const INTL_DATE_PRESET_SHORT: Intl.DateTimeFormatOptions =
+export const INTL_DATE_PRESET_SHORT: IntlDateOptions =
   { dateStyle: 'short', timeStyle: 'short' };
-export const INTL_DATE_PRESET_MEDIUM: Intl.DateTimeFormatOptions =
+export const INTL_DATE_PRESET_MEDIUM: IntlDateOptions =
   { dateStyle: 'medium', timeStyle: 'medium' };
-export const INTL_DATE_PRESET_LONG: Intl.DateTimeFormatOptions =
+export const INTL_DATE_PRESET_LONG: IntlDateOptions =
   { dateStyle: 'long', timeStyle: 'long' };
-export const INTL_DATE_PRESET_FULL: Intl.DateTimeFormatOptions =
+export const INTL_DATE_PRESET_FULL: IntlDateOptions =
   { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'long' };
-export const INTL_DATE_PRESET_SHORT_DATE: Intl.DateTimeFormatOptions =
+export const INTL_DATE_PRESET_SHORT_DATE: IntlDateOptions =
   { dateStyle: 'short' };
-export const INTL_DATE_PRESET_MEDIUM_DATE: Intl.DateTimeFormatOptions =
+export const INTL_DATE_PRESET_MEDIUM_DATE: IntlDateOptions =
   { dateStyle: 'medium' };
-export const INTL_DATE_PRESET_LONG_DATE: Intl.DateTimeFormatOptions =
+export const INTL_DATE_PRESET_LONG_DATE: IntlDateOptions =
   { dateStyle: 'long' };
-export const INTL_DATE_PRESET_FULL_DATE: Intl.DateTimeFormatOptions =
+export const INTL_DATE_PRESET_FULL_DATE: IntlDateOptions =
   { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
-export const INTL_DATE_PRESET_SHORT_TIME: Intl.DateTimeFormatOptions =
+export const INTL_DATE_PRESET_SHORT_TIME: IntlDateOptions =
   { timeStyle: 'short' };
-export const INTL_DATE_PRESET_MEDIUM_TIME: Intl.DateTimeFormatOptions =
+export const INTL_DATE_PRESET_MEDIUM_TIME: IntlDateOptions =
   { timeStyle: 'medium' };
-export const INTL_DATE_PRESET_LONG_TIME: Intl.DateTimeFormatOptions =
+export const INTL_DATE_PRESET_LONG_TIME: IntlDateOptions =
   { timeStyle: 'long' };
-export const INTL_DATE_PRESET_FULL_TIME: Intl.DateTimeFormatOptions =
+export const INTL_DATE_PRESET_FULL_TIME: IntlDateOptions =
   { hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'long' };
 
 @Pipe({
@@ -64,15 +69,21 @@ export class IntlDatePipe implements PipeTransform {
     @Inject(INTL_DATE_OPTIONS) @Optional() private readonly options: IntlDateGlobalOptions | null
   ) {}
 
-  transform(value?: Date | number | null, options?: string | IntlDateOptions, ...locales: string[]): string | null {
-    return value !== null ? new Intl.DateTimeFormat(this.getLocales(locales), this.getOptions(options)).format(value) : null;
+  transform(value?: Date | number | null, options?: string | IntlDateLocalOptions, ...locales: string[]): string | null {
+    if (value === null) {
+      return null;
+    }
+
+    const _locales = this.getLocales(locales);
+    const _options = this.getOptions(options);
+    return new Intl.DateTimeFormat(_locales, _options).format(value);
   }
 
   private getLocales(locales: string[]): string[] {
     return [...locales, this.locale];
   }
 
-  private getOptions(options?: string | IntlDateOptions): Intl.DateTimeFormatOptions {
+  private getOptions(options?: string | IntlDateLocalOptions): IntlDateOptions {
     const presetStr = typeof options === 'string';
     const presetKey = !presetStr
       ? options?.preset || this.options?.defaultPreset || IntlDatePipe.DEFAULT_OPTIONS.defaultPreset
