@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v1.4.0...ngx-intl-v2.0.0) (2022-08-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* temp. remove intl-list pipe
+
+### Bug Fixes
+
+* temp. remove intl-list pipe ([b3f2f3b](https://github.com/haiilo/ngx-intl/commit/b3f2f3bb29efae40cab647734f8f17382f66ca6e))
+
 ## [1.4.0](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v1.3.2...ngx-intl-v1.4.0) (2022-08-08)
 
 
