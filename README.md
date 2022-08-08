@@ -62,6 +62,10 @@ You can add custom configuration and presets using the `INTL_DATE_OPTIONS` injec
           }
         }
       }
+    },
+    {
+      provide: INTL_DATE_TIMEZONE,
+      useValue: 'America/Los_Angeles'
     }
   ]
 })
@@ -78,6 +82,16 @@ You can add custom configuration and presets using the `INTL_DATE_OPTIONS` injec
 ### Browser compatibility
 
 See [mdn web docs | Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format#browser_compatibility).
+
+## `intl-timeago`
+
+Format a relative time according to locale and formatting options.
+
+### Description
+### Pre-defined format options
+### Presets and custom configuration
+### API
+### Browser compatibility
 
 ## `intl-list`
 
@@ -129,6 +143,9 @@ You can add custom configuration and presets using the `INTL_LIST_OPTIONS` injec
 | `options`    | `string \| IntlListOptions` |                       |
 | `...locales` | `string[]`                  |                       |
 
+### Browser compatibility
+
+
 ## `intl-number`
 
 Format a number according to locale and formatting options.
@@ -137,18 +154,21 @@ Format a number according to locale and formatting options.
 ### Pre-defined format options
 ### Presets and custom configuration
 ### API
+### Browser compatibility
 
 ## `intl-plural`
 ### Description
 ### Pre-defined format options
 ### Presets and custom configuration
 ### API
+### Browser compatibility
 
 ## `intl-sort`
 ### Description
 ### Pre-defined format options
 ### Presets and custom configuration
 ### API
+### Browser compatibility
 
 ## Code Contributors
 
