@@ -1,6 +1,13 @@
 # Angular Intl
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0. The project provides the following set of **standalone** Angular pipes:
+
+* [`intl-date`](#-intl-date-)
+* [`intl-timeago`](#-intl-timeago-)
+* [`intl-list`](#-intl-list-)
+* [`intl-number`](#-intl-number-)
+* [`intl-plural`](#-intl-plural-)
+* [`intl-sort`](#-intl-sort-)
 
 ## What is Intl?
 
@@ -93,6 +100,7 @@ Format a relative time according to locale and formatting options.
 ### API
 ### Browser compatibility
 
+<!--
 ## `intl-list`
 
 Format a list according to locale and formatting options.
@@ -144,7 +152,7 @@ You can add custom configuration and presets using the `INTL_LIST_OPTIONS` injec
 | `...locales` | `string[]`                  |                       |
 
 ### Browser compatibility
-
+-->
 
 ## `intl-number`
 

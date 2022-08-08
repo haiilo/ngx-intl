@@ -25,7 +25,6 @@
     "module": "es2020",
     "lib": [
       "es2020",
-      "es2021.intl",
       "dom"
     ]
   },
