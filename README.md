@@ -22,7 +22,7 @@ Note that mutating a Date object does not cause the pipe to be rendered again. T
 
 The default locale used for formatting is the one provided by the Angular [`LOCALE_ID`](https://angular.io/api/core/LOCALE_ID) injection token. See the I18n guide for more information. It can also be passed into the pipe as a third parameter.
 
-The time zone of the formatted value can be specified either by passing it in as a property of the second parameter of the pipe, or by setting the default through the `INTL_DATE_PIPE_DEFAULT_TIMEZONE` injection token. The value that is passed in as the second parameter takes precedence over the one defined using the injection token.
+The time zone of the formatted value can be specified either by passing it in as a property of the second parameter of the pipe, or by setting the default through the `INTL_DATE_TIMEZONE` injection token. The value that is passed in as the second parameter takes precedence over the one defined using the injection token.
 
 ### Pre-defined format options
 

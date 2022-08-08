@@ -5,7 +5,7 @@ describe('IntlTimeagoPipe', () => {
   let pipe: IntlTimeagoPipe;
 
   beforeEach(() => {
-    const datePipe = new IntlDatePipe('en-US', null);
+    const datePipe = new IntlDatePipe('en-US', null, null);
     pipe = new IntlTimeagoPipe('en-US', null, datePipe);
   });
 
@@ -46,7 +46,7 @@ describe('IntlTimeagoPipe', () => {
   });
 
   it('should use preset by string', () => {
-    const datePipe = new IntlDatePipe('en-US', null);
+    const datePipe = new IntlDatePipe('en-US', null, null);
     pipe = new IntlTimeagoPipe('en-US', {presets: {custom: {style: 'short'}}}, datePipe);
     const then = new Date(new Date().getTime() - 1 * 60 * 60 * 24 * 365 / 12 * 2 * 1000);
     const result = pipe.transform(then, 'custom');
@@ -54,7 +54,7 @@ describe('IntlTimeagoPipe', () => {
   });
 
   it('should use preset by options', () => {
-    const datePipe = new IntlDatePipe('en-US', null);
+    const datePipe = new IntlDatePipe('en-US', null, null);
     pipe = new IntlTimeagoPipe('en-US', {presets: {custom: {style: 'short'}}}, datePipe);
     const now = new Date(Date.UTC(2020, 11, 21));
     const then = new Date(Date.UTC(2020, 9, 21));
@@ -63,7 +63,7 @@ describe('IntlTimeagoPipe', () => {
   });
 
   it('should use overrides', () => {
-    const datePipe = new IntlDatePipe('en-US', null);
+    const datePipe = new IntlDatePipe('en-US', null, null);
     pipe = new IntlTimeagoPipe('en-US', {presets: {custom: {style: 'short'}}}, datePipe);
     const now = new Date(Date.UTC(2020, 11, 21));
     const then = new Date(Date.UTC(2020, 9, 21));
@@ -72,7 +72,7 @@ describe('IntlTimeagoPipe', () => {
   });
 
   it('should use default', () => {
-    const datePipe = new IntlDatePipe('en-US', null);
+    const datePipe = new IntlDatePipe('en-US', null, null);
     pipe = new IntlTimeagoPipe('en-US', {presets: {custom: {style: 'short'}}, defaultPreset: 'custom'}, datePipe);
     const now = new Date(Date.UTC(2020, 11, 21));
     const then = new Date(Date.UTC(2020, 9, 21));

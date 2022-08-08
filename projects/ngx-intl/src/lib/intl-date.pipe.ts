@@ -17,6 +17,9 @@ export interface IntlDateLocalOptions extends IntlDateOptions {
 export const INTL_DATE_OPTIONS =
   new InjectionToken<IntlDateGlobalOptions>('IntlDateOptions');
 
+export const INTL_DATE_TIMEZONE =
+  new InjectionToken<string>('IntlDateTimezone');
+
 export const INTL_DATE_PRESET_SHORT: IntlDateOptions =
   { dateStyle: 'short', timeStyle: 'short' };
 export const INTL_DATE_PRESET_MEDIUM: IntlDateOptions =
@@ -66,7 +69,8 @@ export class IntlDatePipe implements PipeTransform {
 
   constructor(
     @Inject(LOCALE_ID) private readonly locale: string,
-    @Inject(INTL_DATE_OPTIONS) @Optional() private readonly options: IntlDateGlobalOptions | null
+    @Inject(INTL_DATE_OPTIONS) @Optional() private readonly options: IntlDateGlobalOptions | null,
+    @Inject(INTL_DATE_TIMEZONE) @Optional() private readonly timezone: string | null
   ) {}
 
   transform(value?: Date | number | null, options?: string | IntlDateLocalOptions, ...locales: string[]): string | null {
@@ -91,6 +95,7 @@ export class IntlDatePipe implements PipeTransform {
     const preset = presetKey
       ? (this.options?.presets?.[presetKey] || IntlDatePipe.DEFAULT_OPTIONS.presets?.[presetKey])
       : undefined;
-    return {...preset, ...(!presetStr ? options : undefined)};
+    const timezone = this.timezone ? { timeZone: this.timezone } : {};
+    return {...timezone, ...preset, ...(!presetStr ? options : undefined)};
   }
 }

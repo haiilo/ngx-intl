@@ -4,7 +4,7 @@ describe('IntlDatePipe', () => {
   let pipe: IntlDatePipe;
 
   beforeEach(() => {
-    pipe = new IntlDatePipe('en-US', null);
+    pipe = new IntlDatePipe('en-US', null, null);
   });
 
   it('should create instance', () => {
@@ -33,29 +33,36 @@ describe('IntlDatePipe', () => {
     expect(result).toMatch(/^\d{1,2}\/\d{1,2}\/\d{4}$/);
   });
 
+  it('should format timezone', () => {
+    pipe = new IntlDatePipe('en-US', null, 'America/Los_Angeles');
+    const time = new Date(Date.UTC(2020, 11, 20, 7, 0, 0)).getTime();
+    const result = pipe.transform(time, 'short');
+    expect(result).toEqual('12/19/20, 11:00 PM');
+  });
+
   it('should use preset by string', () => {
-    pipe = new IntlDatePipe('en-US', {presets: {custom: {dateStyle: 'short'}}});
+    pipe = new IntlDatePipe('en-US', {presets: {custom: {dateStyle: 'short'}}}, null);
     const date = new Date(Date.UTC(2020, 11, 20));
     const result = pipe.transform(date, 'custom');
     expect(result).toEqual('12/20/20');
   });
 
   it('should use preset by options', () => {
-    pipe = new IntlDatePipe('en-US', {presets: {custom: {dateStyle: 'short'}}});
+    pipe = new IntlDatePipe('en-US', {presets: {custom: {dateStyle: 'short'}}}, null);
     const date = new Date(Date.UTC(2020, 11, 20));
     const result = pipe.transform(date, { preset: 'custom' });
     expect(result).toEqual('12/20/20');
   });
 
   it('should use overrides', () => {
-    pipe = new IntlDatePipe('en-US', {presets: {custom: {dateStyle: 'short'}}});
+    pipe = new IntlDatePipe('en-US', {presets: {custom: {dateStyle: 'short'}}}, null);
     const date = new Date(Date.UTC(2020, 11, 20));
     const result = pipe.transform(date, { preset: 'custom', dateStyle: 'long' });
     expect(result).toEqual('December 20, 2020');
   });
 
   it('should use default', () => {
-    pipe = new IntlDatePipe('en-US', {presets: {custom: {dateStyle: 'long'}}, defaultPreset: 'custom'});
+    pipe = new IntlDatePipe('en-US', {presets: {custom: {dateStyle: 'long'}}, defaultPreset: 'custom'}, null);
     const date = new Date(Date.UTC(2020, 11, 20));
     const result = pipe.transform(date);
     expect(result).toEqual('December 20, 2020');
