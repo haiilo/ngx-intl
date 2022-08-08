@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v1.3.2...ngx-intl-v1.4.0) (2022-08-08)
+
+
+### Features
+
+* add timeago pipe ([9f2286e](https://github.com/haiilo/ngx-intl/commit/9f2286ee4443a4256500d9789cedb81729b8fb3b))
+* add timezone support for date formats ([a4a4d3e](https://github.com/haiilo/ngx-intl/commit/a4a4d3ed4584cf366596046e8d5470ff963da0fa))
+
+
+### Bug Fixes
+
+* add new pipes to public api ([e2f0ee5](https://github.com/haiilo/ngx-intl/commit/e2f0ee58c9885bd7f0ec9550240c447aadf1f17e))
+
 ## [1.3.2](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v1.3.1...ngx-intl-v1.3.2) (2022-08-03)
 
 
