@@ -1,9 +1,6 @@
-# NpxIntl
+# Angular Intl
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
-
-- changelog
-- api
 
 ## What is Intl?
 
@@ -47,15 +44,95 @@ The pipe comes with a set of pre-defined format options as shown below.
 | `'fullTime'`  | `9:03:01 AM GMT+01:00`                          |
 
 ### Presets and custom configuration
+
+You can add custom configuration and presets using the `INTL_DATE_OPTIONS` injection token. This allows the definition of additional presets as well as setting a default preset, which is used if no preset name is provided to the pipe.
+
+```
+@NgModule({
+  //…,
+  providers: [
+    //…,
+    {
+      provide: INTL_DATE_OPTIONS,
+      useValue: {
+        defaultPreset: 'custom'
+        presets: {
+          custom: {
+            dateStyle: 'short'
+          }
+        }
+      }
+    }
+  ]
+})
+```
+
 ### API
+
+| Parameter    | Type                                  | Description           |
+|--------------|---------------------------------------|-----------------------|
+| `value`      | `Date \| number \| null \| undefined` |                       |
+| `options`    | `string \| IntlDateOptions`           |                       |
+| `...locales` | `string[]`                            |                       |
+
+### Browser compatibility
+
+See [mdn web docs | Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format#browser_compatibility).
 
 ## `intl-list`
+
+Format a list according to locale and formatting options.
+
 ### Description
+
+The IntlListPipe transforms a list based on parameters provided in the options. The locales and options parameters customize the behavior of the pipe and let applications specify the language conventions that should be used to format the list.
+
 ### Pre-defined format options
+
+The pipe comes with a set of pre-defined format options as shown below.
+
+| Option  | Examples (given in `en-US` locale) |
+|---------|------------------------------------|
+| `'and'` | `a, b, and c`                      |
+| `'or'`  | `a, b, or c`                       |
+
 ### Presets and custom configuration
+
+You can add custom configuration and presets using the `INTL_LIST_OPTIONS` injection token. This allows the definition of additional presets as well as setting a default preset, which is used if no preset name is provided to the pipe.
+
+```
+@NgModule({
+  //…,
+  providers: [
+    //…,
+    {
+      provide: INTL_LIST_OPTIONS,
+      useValue: {
+        defaultPreset: 'custom'
+        presets: {
+          custom: {
+            style: 'narrow',
+            type: 'unit'
+          }
+        }
+      }
+    }
+  ]
+})
+```
+
 ### API
 
+| Parameter    | Type                        | Description           |
+|--------------|-----------------------------|-----------------------|
+| `value`      | `Iterable<string> \| null`  |                       |
+| `options`    | `string \| IntlListOptions` |                       |
+| `...locales` | `string[]`                  |                       |
+
 ## `intl-number`
+
+Format a number according to locale and formatting options.
+
 ### Description
 ### Pre-defined format options
 ### Presets and custom configuration
