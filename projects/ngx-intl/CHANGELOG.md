@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v2.0.0...ngx-intl-v2.0.1) (2022-08-09)
+
+
+### Bug Fixes
+
+* injection of date pipe not working in timeago pipe ([371adf2](https://github.com/haiilo/ngx-intl/commit/371adf29359ac7c1acf35321813c5b5d92e05c36))
+
 ## [2.0.0](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v1.4.0...ngx-intl-v2.0.0) (2022-08-08)
 
 
