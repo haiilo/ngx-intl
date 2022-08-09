@@ -1,5 +1,5 @@
 import { Inject, InjectionToken, LOCALE_ID, Optional, Pipe, PipeTransform } from '@angular/core';
-import { IntlDateLocalOptions, IntlDatePipe } from './intl-date.pipe';
+import { IntlDateGlobalOptions, IntlDateLocalOptions, IntlDatePipe, INTL_DATE_OPTIONS, INTL_DATE_TIMEZONE } from './intl-date.pipe';
 
 const UNITS: {[key in Intl.RelativeTimeFormatUnit]: number} = {
   year: 1 * 60 * 60 * 24 * 365,
@@ -55,6 +55,7 @@ export const INTL_TIMEAGO_PRESET_LONG: IntlTimeagoOptions =
   standalone: true
 })
 export class IntlTimeagoPipe implements PipeTransform {
+  private readonly intlDatePipe: IntlDatePipe
   private static readonly DEFAULT_OPTIONS: IntlTimeagoGlobalOptions = {
     presets: {
       short: INTL_TIMEAGO_PRESET_SHORT,
@@ -65,8 +66,11 @@ export class IntlTimeagoPipe implements PipeTransform {
   constructor(
     @Inject(LOCALE_ID) private readonly locale: string,
     @Inject(INTL_TIMEAGO_OPTIONS) @Optional() private readonly options: IntlTimeagoGlobalOptions | null,
-    private readonly intlDatePipe: IntlDatePipe
-  ) {}
+    @Inject(INTL_DATE_OPTIONS) @Optional() dateOptions: IntlDateGlobalOptions | null,
+    @Inject(INTL_DATE_TIMEZONE) @Optional() dateTimezone: string | null
+  ) {
+    this.intlDatePipe = new IntlDatePipe(locale, dateOptions, dateTimezone);
+  }
 
   transform(value?: Date | number | null, options?: string | IntlTimeagoLocalOptions, ...locales: string[]): string | null {
     if (value === null) {
