@@ -100,6 +100,8 @@ Format a relative time according to locale and formatting options.
 ### API
 ### Browser compatibility
 
+See [mdn web docs | Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat#browser_compatibility) (`Intl.RelativeTimeFormat`) and [mdn web docs | Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format#browser_compatibility) (`Intl.DateTimeFormat`).
+
 <!--
 ## `intl-list`
 
@@ -164,11 +166,15 @@ Format a number according to locale and formatting options.
 ### API
 ### Browser compatibility
 
+See [mdn web docs | Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat#browser_compatibility).
+
 ## `intl-plural`
 
 Enables plural-sensitive formatting.
 
 ### Description
+
+The IntlPluralPipe provides help for pluralization based on parameters provided in the options. The locales and options parameters customize the behavior of the pipe and let applications specify the language conventions that should be used.
 
 ### Pre-defined format options
 
@@ -212,6 +218,8 @@ You can add custom [configuration](https://developer.mozilla.org/en-US/docs/Web/
 | `...locales` | `string[]`                         | A list of locale overwrites. |
 
 ### Browser compatibility
+
+See [mdn web docs | Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#browser_compatibility).
 
 ## `intl-sort`
 
