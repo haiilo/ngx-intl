@@ -46,7 +46,7 @@ export class IntlSortPipe implements PipeTransform {
 
     const _locales = this.getLocales(locales);
     const _options = this.getOptions(options);
-    return value.sort(new Intl.Collator(this.getLocales(locales), this.getOptions(options)).compare);
+    return value.sort(new Intl.Collator(_locales, _options).compare);
   }
 
   private getLocales(locales: string[]): string[] {

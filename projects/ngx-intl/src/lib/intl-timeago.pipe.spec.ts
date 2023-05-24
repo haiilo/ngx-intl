@@ -1,4 +1,3 @@
-import { IntlDatePipe } from './intl-date.pipe';
 import { IntlTimeagoPipe } from './intl-timeago.pipe';
 
 describe('IntlTimeagoPipe', () => {

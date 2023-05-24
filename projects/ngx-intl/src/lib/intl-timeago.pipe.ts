@@ -1,5 +1,5 @@
 import { Inject, InjectionToken, LOCALE_ID, Optional, Pipe, PipeTransform } from '@angular/core';
-import { IntlDateGlobalOptions, IntlDateLocalOptions, IntlDatePipe, INTL_DATE_OPTIONS, INTL_DATE_TIMEZONE } from './intl-date.pipe';
+import { INTL_DATE_OPTIONS, INTL_DATE_TIMEZONE, IntlDateGlobalOptions, IntlDateLocalOptions, IntlDatePipe } from './intl-date.pipe';
 
 const UNITS: {[key in Intl.RelativeTimeFormatUnit]: number} = {
   year: 1 * 60 * 60 * 24 * 365,
@@ -46,9 +46,9 @@ export const INTL_TIMEAGO_OPTIONS =
   new InjectionToken<IntlTimeagoGlobalOptions>('IntlTimeagoOptions');
 
 export const INTL_TIMEAGO_PRESET_SHORT: IntlTimeagoOptions =
-  { style: 'short', dateOptions: 'shortDate' };
+  { numeric: 'auto', style: 'short', dateOptions: 'shortDate' };
 export const INTL_TIMEAGO_PRESET_LONG: IntlTimeagoOptions =
-  { style: 'long', dateOptions: 'mediumDate' };
+  { numeric: 'auto', style: 'long', dateOptions: 'mediumDate' };
 
 @Pipe({
   name: 'intlTimeago',
@@ -91,7 +91,7 @@ export class IntlTimeagoPipe implements PipeTransform {
     const allowed = _options.units ?? IntlTimeagoPipe.DEFAULT_OPTIONS.units;
     const unit = this.getUnit(now, then, allowed);
     const diff = this.getDiff(now, then, unit);
-    return new Intl.RelativeTimeFormat(this.getLocales(locales), this.getOptions(options)).format(diff, unit);
+    return new Intl.RelativeTimeFormat(_locales, _options).format(diff, unit);
   }
 
   private getUnit(now: Date, then: Date, allowed?: Intl.RelativeTimeFormatUnit[]): Intl.RelativeTimeFormatUnit {
