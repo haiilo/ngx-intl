@@ -161,6 +161,7 @@ You can add custom configuration and presets using the `INTL_LIST_OPTIONS` injec
 Format a number according to locale and formatting options.
 
 ### Description
+
 ### Pre-defined format options
 ### Presets and custom configuration
 ### API
