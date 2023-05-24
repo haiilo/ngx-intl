@@ -2,12 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0. The project provides the following set of **standalone** Angular pipes:
 
-* [`intl-date`](#-intl-date-)
-* [`intl-timeago`](#-intl-timeago-)
-* [`intl-list`](#-intl-list-)
-* [`intl-number`](#-intl-number-)
-* [`intl-plural`](#-intl-plural-)
-* [`intl-sort`](#-intl-sort-)
+* [`intl-date`](#-intl-date)
+* [`intl-timeago`](#-intl-timeago)
+* [`intl-list`](#-intl-list)
+* [`intl-number`](#-intl-number)
+* [`intl-plural`](#-intl-plural)
+* [`intl-sort`](#-intl-sort)
 
 ## What is Intl?
 
