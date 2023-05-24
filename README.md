@@ -52,7 +52,7 @@ The pipe comes with a set of pre-defined format options as shown below.
 
 ### Presets and custom configuration
 
-You can add custom configuration and presets using the `INTL_DATE_OPTIONS` injection token. This allows the definition of additional presets as well as setting a default preset, which is used if no preset name is provided to the pipe.
+You can add custom [configuration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#syntax) and presets using the `INTL_DATE_OPTIONS` injection token. This allows the definition of additional presets as well as setting a default preset, which is used if no preset name is provided to the pipe.
 
 ```
 @NgModule({
@@ -82,9 +82,9 @@ You can add custom configuration and presets using the `INTL_DATE_OPTIONS` injec
 
 | Parameter    | Type                                  | Description           |
 |--------------|---------------------------------------|-----------------------|
-| `value`      | `Date \| number \| null \| undefined` |                       |
-| `options`    | `string \| IntlDateOptions`           |                       |
-| `...locales` | `string[]`                            |                       |
+| `value`      | `Date \| number \| null \| undefined` | The date to be formatted, given as a JS date or a number. |
+| `options`    | `string \| IntlDateLocalOptions`      | The name of a preset or custom formatting options. |
+| `...locales` | `string[]`                            | A list of locale overwrites. |
 
 ### Browser compatibility
 
@@ -165,18 +165,106 @@ Format a number according to locale and formatting options.
 ### Browser compatibility
 
 ## `intl-plural`
+
+Enables plural-sensitive formatting.
+
 ### Description
+
 ### Pre-defined format options
+
+The pipe comes with a set of pre-defined sort options as shown below.
+
+| Option         | Examples (given in `en-US` locale) |
+|----------------|------------------------------------|
+| `'cardinal'`   | `3` → `other`                      |
+| `'ordinal'`    | `3` → `few`                        |
+
 ### Presets and custom configuration
+
+You can add custom [configuration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#syntax) and presets using the `INTL_PLURAL_OPTIONS` injection token. This allows the definition of additional presets as well as setting a default preset, which is used if no preset name is provided to the pipe.
+
+```
+@NgModule({
+  //…,
+  providers: [
+    //…,
+    {
+      provide: INTL_PLURAL_OPTIONS,
+      useValue: {
+        defaultPreset: 'custom'
+        presets: {
+          custom: {
+            type: 'ordinal'
+          }
+        }
+      }
+    }
+  ]
+})
+```
+
 ### API
+
+| Parameter    | Type                               | Description           |
+|--------------|------------------------------------|-----------------------|
+| `value`      | `number \| null`                   | The number to be converted. |
+| `options`    | `string \| IntlPluralLocalOptions` | The name of a preset or custom pluralization options. |
+| `...locales` | `string[]`                         | A list of locale overwrites. |
+
 ### Browser compatibility
 
 ## `intl-sort`
+
+Enables language-sensitive string comparison.
+
 ### Description
+
+The IntlSortPipe sorts a list of strings based on parameters provided in the options. The locales and options parameters customize the behavior of the pipe and let applications specify the language conventions that should be used to sort the list.
+
 ### Pre-defined format options
+
+You can add custom [configuration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#syntax) and presets using the `INTL_SORT_OPTIONS` injection token. This allows the definition of additional presets as well as setting a default preset, which is used if no preset name is provided to the pipe.
+
+```
+@NgModule({
+  //…,
+  providers: [
+    //…,
+    {
+      provide: INTL_SORT_OPTIONS,
+      useValue: {
+        defaultPreset: 'custom'
+        presets: {
+          custom: {
+            sensitivity: 'base'
+          }
+        }
+      }
+    }
+  ]
+})
+```
+
 ### Presets and custom configuration
+
+The pipe comes with a set of pre-defined sort options as shown below.
+
+| Option         | Examples (given in `en-US` locale) |
+|----------------|------------------------------------|
+| `'lowerFirst'` | `['a', 'e', 'z', 'Z']`             |
+| `'upperFirst'` | `['a', 'e', 'Z', 'z']`             |
+
 ### API
+
+| Parameter    | Type                             | Description           |
+|--------------|----------------------------------|-----------------------|
+| `value`      | `string[] \| null`               | The list of strings to be sorted. |
+| `options`    | `string \| IntlSortLocalOptions` | The name of a preset or custom sort options. |
+| `...locales` | `string[]`                       | A list of locale overwrites. |
+
 ### Browser compatibility
+
+See [mdn web docs | Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator#browser_compatibility).
 
 ## Code Contributors
 
