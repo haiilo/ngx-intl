@@ -1,11 +1,11 @@
 {
-  "name": "@haiilo/npx-intl",
+  "name": "@haiilo/ngx-intl",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build ngx-intl",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
