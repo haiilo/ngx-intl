@@ -16,7 +16,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run prepublishOnly
-      - uses: JS-DevTools/npm-publish@v1
+      - uses: JS-DevTools/npm-publish@v2
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: dist/ngx-intl/package.json
