@@ -27,7 +27,7 @@ export const INTL_NUMBER_PRESET_PERCENT: IntlNumberOptions =
   { style: 'percent' };
 
 /**
- * A pipe that formats a number using the Intl.NumberFormat API.
+ * A pipe that formats a number using the Intl.NumberFormat API
  */
 @Pipe({
   name: 'intlNumber',
