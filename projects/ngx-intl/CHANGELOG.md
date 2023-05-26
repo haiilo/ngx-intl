@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.0](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v2.0.1...ngx-intl-v2.1.0) (2023-05-24)
+
+
+### Features
+
+* add live updates to timeago pipe ([33d9990](https://github.com/haiilo/ngx-intl/commit/33d9990b55fa38cdad8da034c4fddb49ebefb6cc))
+* set numeric to auto for relative date time formatting ([6f99292](https://github.com/haiilo/ngx-intl/commit/6f99292a66ff52d70fb6587fc0063f0fff819667))
+
 ## [2.0.1](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v2.0.0...ngx-intl-v2.0.1) (2022-08-09)
 
 
