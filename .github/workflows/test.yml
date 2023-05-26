@@ -35,7 +35,7 @@ jobs:
         run: npm ci
       - name: Test
         run: |
-          npm run lint
+          npm run lint ngx-intl
   test:
     runs-on: ubuntu-latest
     steps:
