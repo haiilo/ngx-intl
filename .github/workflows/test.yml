@@ -49,9 +49,6 @@ jobs:
           cache-dependency-path: package-lock.json
       - name: Install
         run: npm ci
-      - name: Build
-        run: |
-          npm run build
       - name: Test
         run: |
           npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
