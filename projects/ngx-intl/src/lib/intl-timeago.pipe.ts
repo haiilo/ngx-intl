@@ -123,6 +123,7 @@ export class IntlTimeagoPipe implements PipeTransform, OnDestroy {
     const seconds = Math.abs(Math.round((then.getTime() - now.getTime()) / 1000));
     const minRelative = _options.minRelative ?? IntlTimeagoPipe.DEFAULT_OPTIONS.minRelative ?? -1;
     const maxRelative = _options.maxRelative ?? IntlTimeagoPipe.DEFAULT_OPTIONS.maxRelative ?? Number.MAX_SAFE_INTEGER;
+
     if (seconds < minRelative) {
       this.text = _options.now ?? IntlTimeagoPipe.DEFAULT_OPTIONS.now ?? '';
       this.update = minRelative - seconds;
