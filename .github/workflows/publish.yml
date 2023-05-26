@@ -18,6 +18,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm run build ngx-intl
-      # - run: npm run prepublishOnly
-      - run: cd dist/ngx-intl
-      - run: npm publish --access public
+      - run: |
+          cd dist/ngx-intl
+          npm publish --access public
