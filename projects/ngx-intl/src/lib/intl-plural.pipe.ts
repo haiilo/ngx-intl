@@ -22,6 +22,9 @@ export const INTL_PLURAL_PRESET_CARDINAL: IntlPluralOptions =
 export const INTL_PLURAL_PRESET_ORDINAL: IntlPluralOptions =
   { type: 'ordinal' };
 
+/**
+ * A pipe that pluralizes a string using the Intl.PluralRules API.
+ */
 @Pipe({
   name: 'IntlPlural',
   standalone: true

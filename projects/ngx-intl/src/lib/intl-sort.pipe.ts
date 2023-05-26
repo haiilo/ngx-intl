@@ -22,6 +22,9 @@ export const INTL_SORT_PRESET_LOWER_FIRST: IntlSortOptions =
 export const INTL_SORT_PRESET_UPPER_FIRST: IntlSortOptions =
   { caseFirst: 'upper' };
 
+/**
+ * A pipe that sorts an array of strings using the Intl.Collator API.
+ */
 @Pipe({
   name: 'IntlSort',
   standalone: true

@@ -54,6 +54,10 @@ export const INTL_TIMEAGO_PRESET_SHORT: IntlTimeagoOptions =
 export const INTL_TIMEAGO_PRESET_LONG: IntlTimeagoOptions =
   { numeric: 'auto', style: 'long', dateOptions: 'mediumDate' };
 
+/**
+ * A pipe that formats a date value to a human-readable relative-timeago string
+ * using the Intl.RelativeTimeFormat API.
+ */
 @Pipe({
   name: 'intlTimeago',
   standalone: true,

@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   template: '{{ now | intlTimeago }}',
 })
 export class AppComponent {
-  now = new Date().getTime() - 57 * 1000;
+  now = new Date().getTime() - 55 * 1000;
 }
