@@ -7,7 +7,6 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     env:
-      INPUT_TOKEN: ${{ secrets.NPM_TOKEN }}
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v3
@@ -16,10 +15,9 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
           cache-dependency-path: package-lock.json
+          registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm run build ngx-intl
-      - run: npm run prepublishOnly
-      - uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: dist/ngx-intl/package.json
+      # - run: npm run prepublishOnly
+      - run: cd dist/ngx-intl
+      - run: npm publish
