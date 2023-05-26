@@ -19,7 +19,7 @@ jobs:
         run: npm ci
       - name: Build
         run: |
-          npm run build
+          npm run build ngx-intl
   eslint:
     runs-on: ubuntu-latest
     steps:
@@ -51,4 +51,4 @@ jobs:
         run: npm ci
       - name: Test
         run: |
-          npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+          npm run test ngx-intl -- --no-watch --no-progress --browsers=ChromeHeadlessCI

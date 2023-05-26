@@ -14,7 +14,7 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
       - run: npm ci
-      - run: npm run build
+      - run: npm run build ngx-intl
       - run: npm run prepublishOnly
       - uses: JS-DevTools/npm-publish@v2
         with:
