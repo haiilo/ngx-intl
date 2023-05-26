@@ -20,4 +20,4 @@ jobs:
       - run: npm run build ngx-intl
       # - run: npm run prepublishOnly
       - run: cd dist/ngx-intl
-      - run: npm publish
+      - run: npm publish --access public
