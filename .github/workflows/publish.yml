@@ -13,11 +13,10 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
           cache-dependency-path: package-lock.json
-          registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm run build ngx-intl
-      - run: |
-          cd dist/ngx-intl
-          npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm run prepublishOnly
+      - uses: JS-DevTools/npm-publish@v2
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: dist/ngx-intl/package.json
