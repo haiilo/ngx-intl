@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v2.1.0...ngx-intl-v2.1.1) (2023-05-26)
+
+
+### Bug Fixes
+
+* update code documentation ([f62e72f](https://github.com/haiilo/ngx-intl/commit/f62e72ffa478ebbf93f9ca19076e22434afe7993))
+
 ## [2.1.0](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v2.0.1...ngx-intl-v2.1.0) (2023-05-24)
 
 
