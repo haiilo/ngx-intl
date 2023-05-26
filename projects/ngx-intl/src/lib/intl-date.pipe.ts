@@ -46,7 +46,7 @@ export const INTL_DATE_PRESET_FULL_TIME: IntlDateOptions =
   { hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'long' };
 
 /**
- * A pipe that formats a date using the Intl.DateTimeFormat API.
+ * A pipe that formats a date using the Intl.DateTimeFormat API
  */
 @Pipe({
   name: 'intlDate',
