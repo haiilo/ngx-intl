@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.4](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v2.1.3...ngx-intl-v2.1.4) (2023-05-26)
+
+
+### Bug Fixes
+
+* test ci automation ([a1589e0](https://github.com/haiilo/ngx-intl/commit/a1589e0c6ae5c62d3426379129db11968665d74e))
+
 ## [2.1.3](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v2.1.2...ngx-intl-v2.1.3) (2023-05-26)
 
 
