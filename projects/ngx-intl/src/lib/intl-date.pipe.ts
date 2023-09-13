@@ -76,14 +76,15 @@ export class IntlDatePipe implements PipeTransform {
     @Inject(INTL_DATE_TIMEZONE) @Optional() private readonly timezone: string | null
   ) {}
 
-  transform(value?: Date | number | null, options?: string | IntlDateLocalOptions, ...locales: string[]): string | null {
+  transform(value?: Date | string | number | null, options?: string | IntlDateLocalOptions, ...locales: string[]): string | null {
     if (value === null) {
       return null;
     }
 
     const _locales = this.getLocales(locales);
     const _options = this.getOptions(options);
-    return new Intl.DateTimeFormat(_locales, _options).format(value);
+    const formatValue = typeof value === 'string' ? new Date(value) : value;
+    return new Intl.DateTimeFormat(_locales, _options).format(formatValue);
   }
 
   private getLocales(locales: string[]): string[] {

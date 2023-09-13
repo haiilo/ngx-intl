@@ -82,7 +82,7 @@ You can add custom [configuration](https://developer.mozilla.org/en-US/docs/Web/
 
 | Parameter    | Type                                  | Description           |
 |--------------|---------------------------------------|-----------------------|
-| `value`      | `Date \| number \| null \| undefined` | The date to be formatted, given as a JS date or a number. |
+| `value`      | `Date \| string \| number \| null \| undefined` | The date to be formatted, given as a JS date, string or number. |
 | `options`    | `string \| IntlDateLocalOptions`      | The name of a preset or custom formatting options. |
 | `...locales` | `string[]`                            | A list of locale overwrites. |
 
