@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v2.1.7...ngx-intl-v2.2.0) (2023-09-13)
+
+
+### Features
+
+* support strings as inputs for date pipes ([#24](https://github.com/haiilo/ngx-intl/issues/24)) ([19d9f5e](https://github.com/haiilo/ngx-intl/commit/19d9f5e167feee0af0ecfe920aed01151c437845))
+
 ## [2.1.7](https://github.com/haiilo/ngx-intl/compare/ngx-intl-v2.1.6...ngx-intl-v2.1.7) (2023-05-26)
 
 
