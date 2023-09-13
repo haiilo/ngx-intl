@@ -72,7 +72,7 @@ export class IntlTimeagoPipe implements PipeTransform, OnDestroy {
     }
   };
 
-  private lastValue?: Date | number | null;
+  private lastValue?: Date | string | number | null;
   private lastOptions?: string | IntlTimeagoLocalOptions;
   private lastLocales: string[] = [];
   private text: string | null = null;
@@ -94,7 +94,7 @@ export class IntlTimeagoPipe implements PipeTransform, OnDestroy {
     this.removeTimer();
   }
 
-  transform(value?: Date | number | null, options?: string | IntlTimeagoLocalOptions, ...locales: string[]): string | null {
+  transform(value?: Date | string | number | null, options?: string | IntlTimeagoLocalOptions, ...locales: string[]): string | null {
     if (value !== this.lastValue || options !== this.lastOptions || locales.join() !== this.lastLocales.join()) {
       this.lastValue = value;
       this.lastOptions = options;
